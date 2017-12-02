@@ -10,6 +10,8 @@ import (
 func NewRouter() *goji.Mux {
 	root := goji.NewMux()
 	root.HandleFunc(pat.Get("/theaters"), handlers.ListAllTheater)
+	root.HandleFunc(pat.Get("/movies"), handlers.ListAllMovie)
+	root.HandleFunc(pat.Get("/theater/:theater_id/movies"), handlers.ListAllMovieByTheaterId)
 
 	return root
 }
