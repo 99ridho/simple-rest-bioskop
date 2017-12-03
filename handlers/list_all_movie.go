@@ -20,8 +20,18 @@ func ListAllMovie(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	movieResponseData := make([]models.MovieResponse, 0)
+	for _, m := range result {
+		theater, _ := m.Theater()
+		movieData := models.MovieResponse{
+			Movie:         m,
+			TheaterDetail: theater,
+		}
+		movieResponseData = append(movieResponseData, movieData)
+	}
+
 	json.NewEncoder(w).Encode(map[string]interface{}{
-		"data": result,
+		"data": movieResponseData,
 	})
 }
 
@@ -35,7 +45,17 @@ func ListAllMovieByTheaterId(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	movieResponseData := make([]models.MovieResponse, 0)
+	for _, m := range result {
+		theater, _ := m.Theater()
+		movieData := models.MovieResponse{
+			Movie:         m,
+			TheaterDetail: theater,
+		}
+		movieResponseData = append(movieResponseData, movieData)
+	}
+
 	json.NewEncoder(w).Encode(map[string]interface{}{
-		"data": result,
+		"data": movieResponseData,
 	})
 }

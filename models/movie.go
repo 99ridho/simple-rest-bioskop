@@ -27,3 +27,14 @@ func NewMovie(id, theaterId int, name, synopsis string, duration int, genre stri
 
 	return m, nil
 }
+
+func (m *Movie) Theater() (*MovieTheater, error) {
+	theaterID := m.TheaterID
+	var theater MovieTheater
+
+	if err := Dbm.SelectOne(&theater, "select * from movie_theaters where id = ?", theaterID); err != nil {
+		return nil, err
+	}
+
+	return &theater, nil
+}
