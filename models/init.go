@@ -38,6 +38,7 @@ func init() {
 	Dbm.TraceOn("[gorm]", log.New(os.Stdout, "myapp:", log.Lmicroseconds))
 	Dbm.AddTableWithName(MovieTheater{}, "movie_theaters").SetKeys(true, "ID")
 	Dbm.AddTableWithName(Movie{}, "movies").SetKeys(true, "ID")
+	Dbm.AddTableWithName(MovieSchedule{}, "movie_schedules").SetKeys(true, "ID")
 	Dbm.TraceOff()
 }
 

@@ -18,4 +18,8 @@ func main() {
 	models.NewMovie(2, 2, "Keluarga Tak Kasat Mata", "Film Horor", 145, "Horror", 2017)
 	models.NewMovie(3, 3, "Keluarga Tak Kasat Mata", "Film Horor", 145, "Horror", 2017)
 	models.NewMovie(4, 4, "Keluarga Tak Kasat Mata", "Film Horor", 145, "Horror", 2017)
+
+	models.NewMovieSchedule(1, 1, 1, "2018-01-20 17:45")
+	models.NewMovieSchedule(2, 1, 1, "2018-01-20 10:39")
+	models.NewMovieSchedule(3, 2, 2, "2017-11-10 23:59")
 }
