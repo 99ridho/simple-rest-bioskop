@@ -18,6 +18,7 @@ func NewHTTPError(code int, message string) *HTTPError {
 }
 
 func (e *HTTPError) WriteTo(w http.ResponseWriter) {
+	w.WriteHeader(e.Code)
 	json.NewEncoder(w).Encode(map[string]interface{}{
 		"error_code":    e.Code,
 		"error_message": e.Message,
