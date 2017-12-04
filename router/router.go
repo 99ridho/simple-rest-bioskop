@@ -13,6 +13,7 @@ func NewRouter() *goji.Mux {
 	root.HandleFunc(pat.Get("/movies"), handlers.ListAllMovie)
 	root.HandleFunc(pat.Get("/theater/:theater_id/movies"), handlers.ListAllMovieByTheaterId)
 	root.HandleFunc(pat.Get("/movie/upcoming"), handlers.ListUpcomingMovieSchedule)
+	root.HandleFunc(pat.Get("/movie/now"), handlers.ListNowMovieSchedule)
 
 	return root
 }
