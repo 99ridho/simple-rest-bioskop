@@ -1,9 +1,12 @@
 package main
 
 import (
-	"fmt"
+	"net/http"
+
+	"github.com/99ridho/simple-rest-bioskop/router"
 )
 
 func main() {
-	fmt.Println("Main triggered.")
+	r := router.NewRouter()
+	http.ListenAndServe(":1313", r)
 }
